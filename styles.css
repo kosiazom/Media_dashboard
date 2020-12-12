@@ -1,5 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+.dark {
+  --facebook: #198ff5;
+  --twitter: #1ca0f2;
+  --instagram: #df4996;
+  --youtube: #c4032a;
+  --bg-dark: #1e202a;
+  --bg-top: #1f212e;
+  --cardbg-dark: #252a41;
+  --primary-text-dark: #ffffff;
+  --secondary-text-dark: #8b97c6;
+  --hover-color: #363e57;
+  --lime-green: #1db489;
+  --bright-red: #dc414c;
+}
+
+.light-theme {
+  --facebook: #198ff5;
+  --twitter: #1ca0f2;
+  --instagram: #df4996;
+  --youtube: #c4032a;
+  --bg-dark: #ffffff;
+  --bg-top: #f5f7ff;
+  --cardbg-dark: #f0f2fa;
+  --primary-text-dark: #1e202a;
+  --secondary-text-dark: #63687e;
+  --hover-color: #bfc1c7;
+  --lime-green: #1db489;
+  --bright-red: #dc414c;
+}
+html{
+  --bg: #1e202a;
+  --text: #fff;
+  --cardbg: #252a41
+}
 *{
     margin: 0;
     padding: 0;
@@ -13,6 +47,7 @@ body{
     align-items: center;
     justify-content: center;
     font-family: "Inter", sans-serif;
+    color: var(--text);
 }
 
 a{ 
@@ -26,88 +61,139 @@ p {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 100px;
+    height: 52px;
+    background-color: #eee;
+    border-radius: 30px;
 }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+.switch::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--bg);
+    top: 1px;
+    left: 1px;
+    transition: all 0.5s;
 }
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
 
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
+.checkbox:checked + .switch::after {
+  left: 50px
+}
 
+.checkbox:checked + .switch {
+  background-color:  linear gradient (
+    to right,
+    hsl(210, 78%, 56%) 
+    hsl(146, 68%, 55%)
+);
+}
+
+/* .checkbox:checked + .switch::after {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+} */
+
+.checkbox:checked::before {
+  transform: translate(100%);
+  transition: all 0.9s;
+}
+.checkbox {
+  visibility: hidden;
+}
+
+h3 {
+  font-size: medium;
+}
+
+/* 
   input:checked + .slider {
-    background-color: ;
-  }
+    background-color: hsl(230, 22%, 74%);
+  } */
 
-  input:focus + .slider {
+  /* input:focus + .slider {
     box-shadow: 0 0 1px #378fe6;
-  }
+  } */
 
-  input:checked + .slider:before {
+  /* input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
+  } */
 
-  .slider.round {
+    /* #toggle-switch {
     border-radius: 34px;
-  }
+    background-image:  linear gradient (
+      to right,
+      hsl(210, 78%, 56%) 
+      hsl(146, 68%, 55%)
+  );
+  } */
   
-  .slider.round:before {
+     /* #toggle-switch:before {
     border-radius: 50%;
-  }
+    background-image:  linear gradient (
+      to right,
+      hsl(210, 78%, 56%) 
+      hsl(146, 68%, 55%)
+  );
+  } */
 
-  .toggle-btn {
+  /* #toggle-switch {
       float: right;
       outline: none;
       appearance: none;
       width: 50px;
       height: 25px;
-      background-image:  linear gradient (
+      background-image: linear-gradient(
+        to right,
+        hsl(210, 78%, 56% ),
+        hsl(146, 68%, 55% )
+      );
+      
+  } */
+
+/* input[type=checkbox]{
+	height: 0;
+	width: 0;
+  visibility: hidden;
+  background-image:  linear gradient (
           to right,
           hsl(210, 78%, 56%) 
           hsl(146, 68%, 55%)
       );
-  }
+  position: relative;
+  border-radius: 50px;
+} */ 
 
-input[type=checkbox]{
-	height: 0;
-	width: 0;
-	visibility: hidden;
-}
-
-label {
-	cursor: pointer;
+/* .toggle {
 	text-indent: -9999px;
-	width: 40px;
-	height: 20px;
+	width: 100px;
+	height: 52px;
 	background: linear-gradient(to right, #378fe6, #3eda82);
-	display: block;
-	border-radius: 100px;
+	display: inline-block;
+	border-radius: 30px;
 	position: relative;
+} */
+
+/* .toggle:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: hsl(230, 22%, 74%);
+  top: 1px;
+  left: 1px;
+  transition: all 0.5s;
+} */
+
+/* .checkbox:checked + .toggle::after {
+left: 49px;
 }
+
+.checkbox:checked + .toggle { 
+  background-color: green;  */
